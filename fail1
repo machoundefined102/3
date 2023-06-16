@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>PHP Суперглобальная переменная $_REQUEST</h1>
+
+<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+  Имя: <input type="text" name="fname">
+  <input type="submit">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // собрать значение поля ввода
+    $name = htmlspecialchars($_REQUEST['fname']);
+    if (empty($name)) {
+        echo "Имя пустое";
+    } else {
+        echo $name;
+    }
+}
+?>
+
+</body>
+</html>
